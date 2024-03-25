@@ -1,6 +1,3 @@
-# Windows Security Event Log
-
-```
 // Failed Authentication (RDP, SMB)
 SecurityEvent
 | where EventID == 4625
@@ -31,7 +28,6 @@ let SuccessfulLogons = SecurityEvent
 SuccessfulLogons
 | join kind = leftouter FailedLogons on DestinationHostName, AttackerIP, LogonType
 | project AuthenticationSuccessTime, AttackerIP, DestinationHostName, FailureCount, SuccessfulCount
-```
 
 # Linux Syslog
 
